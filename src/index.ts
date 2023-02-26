@@ -1,14 +1,12 @@
 import express, { Express, Request, Response } from 'express';
 import { param, validationResult, Result, ValidationError } from 'express-validator';
 import dotenv from 'dotenv';
-import compression from 'compression';
 import { getClientIp, fetchBlocklist } from './utils';
 
 dotenv.config();
 const app: Express = express();
 const port = process.env.PORT || 3000;
 
-app.use(compression()); // compress responses
 app.use(express.text());
 app.use(express.urlencoded({ extended: true }));
 

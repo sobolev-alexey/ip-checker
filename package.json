@@ -12,7 +12,6 @@
   "author": "Alexey Sobolev <hello@lexer.dev> (https://lexer.dev/)",
   "license": "Apache-2.0",
   "dependencies": {
-    "compression": "^1.7.4",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-validator": "^6.15.0",
