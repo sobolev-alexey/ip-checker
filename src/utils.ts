@@ -19,9 +19,10 @@ export const fetchBlocklist = async () => {
     console.log('Fetching blocklist');
     const fetchedBlocklist: Set<string> = new Set();
 
-    // Fetch new blocklist, apply gzip/deflate content encoding
+    // Fetch new blocklist, apply gzip content encoding
     const response = await fetch(url, { compress: true });
     const data: string = await response.text();
+    const contentLength = Number(response.headers.get('content-length') || 0)
 
     data.split('\n').reduce((acc: Set<string>, line: string) => {
       if (!line?.startsWith('#')) { // skip comments
@@ -33,7 +34,7 @@ export const fetchBlocklist = async () => {
       return acc;
     }, fetchedBlocklist);
 
-    console.log(`Fetched ${fetchedBlocklist.size} entries`);
+    console.log(`Fetched ${fetchedBlocklist.size} entries; transferred ${contentLength} bytes`);
     // replace content of the existing blocklist 
     // only if newly fetched blocklist contains entries
     return fetchedBlocklist.size > 0 ? fetchedBlocklist : null;
