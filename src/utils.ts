@@ -21,6 +21,8 @@ export const fetchBlocklist = async () => {
 
     // Fetch new blocklist, apply gzip content encoding
     const response = await fetch(url, { compress: true });
+    if (!response.ok) throw new Error(`Unexpected response ${response.statusText}`);
+
     const data: string = await response.text();
     const contentLength = Number(response.headers.get('content-length') || 0)
 
