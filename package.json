@@ -1,0 +1,31 @@
+{
+  "name": "ip-checker",
+  "version": "1.0.0",
+  "description": "IP Blocklist Service",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexey Sobolev <hello@lexer.dev> (https://lexer.dev/)",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validator": "^6.15.0",
+    "node-fetch": "^2.6.9",
+    "validator": "^13.9.0"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.7.2",
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.14.1",
+    "@types/node-fetch": "^2.6.2",
+    "@types/validator": "^13.7.12",
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.20",
+    "typescript": "^4.9.5"
+  }
+}
